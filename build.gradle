@@ -54,41 +54,42 @@ configurations {
 
 repositories {
 
-    maven {
+	maven {
         name "zerocore"
-        url "http://maven.zerono.it/"
+        url "https://maven.zerono.it/"
     }
 
     maven {
         name "Tesla"
-        url 'http://maven.mcmoddev.com'
+        url 'https://maven.blamejared.com'
     }
 
     maven {
         name = "OpenComputers"
-        url = "http://maven.cil.li/"
+        url = "https://maven.cil.li/"
     }
 
     maven {
-        name = "ComputerCraft"
-        url "http://cc.crzd.me/maven/"
+        name = "cc.tweaked"
+        url "https://maven.squiddev.cc"
     }
 
     maven {
         name = "CoFH Maven"
-        url = "http://maven.covers1624.net"
+        url = "https://maven.covers1624.net"
     }
 
     maven {
         // location of the maven that hosts JEI files
         name = "Progwml6 maven"
-        url = "http://dvs1.progwml6.com/files/maven"
+        url = "https://dvs1.progwml6.com/files/maven"
     }
+    
     maven {
         // location of a maven mirror for JEI files, as a fallback
         name = "ModMaven"
         url = "modmaven.k-4u.nl"
-    }
+	}
 }
 
 dependencies {
@@ -96,8 +97,9 @@ dependencies {
     compile group: "it.zerono.mods.zerocore", name: "zerocore", version: "${config.zerocore_version}"
     deobfCompile group: "li.cil.oc", name: "OpenComputers", version: "${config.opencomputers_version}"
     compile "net.darkhax.tesla:Tesla-1.12.2:${config.tesla_version}"
-    compile group: "dan200.computercraft", name: "ComputerCraft", version: "${config.computercraft_version}"
+    compile "dan200.computercraft:ComputerCraft:1.80pr0-build0" 
     compile "cofh:CoFHCore:${config.cofhcore_version}:deobf"
+    deobfCompile "cofh:RedstoneFlux:1.12-2.1.0.7:universal"
 
     // compile against the JEI API but do not include it at runtime
     deobfProvided "mezz.jei:jei_${config.minecraft_version}:${config.jei_version}:api"
