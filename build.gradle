@@ -84,7 +84,6 @@ repositories {
         name = "Progwml6 maven"
         url = "https://dvs1.progwml6.com/files/maven"
     }
-    
     maven {
         // location of a maven mirror for JEI files, as a fallback
         name = "ModMaven"
@@ -99,7 +98,7 @@ dependencies {
     compile "net.darkhax.tesla:Tesla-1.12.2:${config.tesla_version}"
     compile "dan200.computercraft:ComputerCraft:1.80pr0-build0" 
     compile "cofh:CoFHCore:${config.cofhcore_version}:deobf"
-    deobfCompile "cofh:RedstoneFlux:1.12-2.1.0.7:universal"
+	deobfCompile "cofh:RedstoneFlux:1.12-2.1.0.7:universal"
 
     // compile against the JEI API but do not include it at runtime
     deobfProvided "mezz.jei:jei_${config.minecraft_version}:${config.jei_version}:api"
@@ -172,7 +171,7 @@ uploadArchives {
     repositories {
 
         mavenDeployer {
-            repository(url: "file://C:\\MC\\ForgeDEV\\Mod Workspace\\BigReactorsReborn\\maven")
+            repository(url: "file://${project.projectDir}/output")
             pom.version = project.ext.fullVersion
             //jar.archiveName = 'ExtremeReactorsABC.jar'
             pom.artifactId = "${config.mod_id}"
