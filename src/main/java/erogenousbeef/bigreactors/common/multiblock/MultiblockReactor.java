@@ -548,17 +548,19 @@ public class MultiblockReactor extends RectangularMultiblockControllerBase imple
 		}
 		
 		// TODO: Overload/overheat
-		if(reactorHeat > 1000) {
-//			this.WORLD.createExplosion(null, 200.0, 75.0, 200.0, 100, true).doExplosionB(true);
-			System.out.println("Overloading via reactor heat");
-		}
-		if(fuelHeat > 1000) {
-			System.out.println("Overloading via fuel heat");
-			for(TileEntityReactorController contr : attachedControllers) {
-				BlockPos pos = contr.getPos();
-				this.WORLD.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 200, true, true).doExplosionB(true);
+		if(BigReactors.CONFIG.doReactorMeltdown) {
+			if(reactorHeat > 1000) {
+//				this.WORLD.createExplosion(null, 200.0, 75.0, 200.0, 100, true).doExplosionB(true);
+				System.out.println("Overloading via reactor heat");
 			}
-			
+			if(fuelHeat > 1000) {
+				System.out.println("Overloading via fuel heat");
+				for(TileEntityReactorController contr : attachedControllers) {
+					BlockPos pos = contr.getPos();
+					this.WORLD.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 200, true, true).doExplosionB(true);
+				}
+				
+			}
 		}
 
 		this.WORLD.profiler.endStartSection("Tickables");

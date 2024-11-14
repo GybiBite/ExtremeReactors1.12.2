@@ -193,6 +193,7 @@ config.bigreactors.general.ticksPerRedstoneUpdate=Ticks per redstone update
 config.bigreactors.reactor.maxReactorHeight=Max height (Y)
 config.bigreactors.reactor.maxReactorSize=Max size (X/Z)
 config.bigreactors.reactor.reactorPowerProductionMultiplier=Power production multiplier
+config.bigreactors.reactor.doReactorMeltdown=Determines if reactors meltdown
 
 config.bigreactors.turbine.maxTurbineHeight=Max height (Y)
 config.bigreactors.turbine.maxTurbineSize=Max size (X/Z)
